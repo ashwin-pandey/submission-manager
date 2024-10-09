@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: submission_manager_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - submission_manager_network
+
+volumes:
+  mongo-data:
+
+networks:
+  submission_manager_network:
+    driver: bridge
